@@ -52,7 +52,7 @@ module.exports = function (callback) {
       json: {
         app: 'sonos',          // Name of the device brand
         location: 'none',
-        topic: 'sound',      // lights, bridge, switch, temperature, sounds, etc
+        topic: 'music',      // lights, bridge, switch, temperature, sounds, etc
         groupname: 'none',
         hook: '/sonos/' + device.host  // hook == /Namebrand/id
         // We will use the id to access to the device and modify it.

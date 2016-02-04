@@ -8,10 +8,11 @@ var router = express.Router()
 var Sonos = require('sonos')
 var sonos
 var async = require('async')
-var helper = require('./helpers')
+var mqtt = require('mqtt')
 
 // Require the discovery function
 var loadResources = require('./resources')
+var helper = require('./helpers')
 
 // If you need to obtain more information from the resources you can use the callback
 // Example. loadResources(function (err, devices, etc) {
@@ -98,9 +99,9 @@ loadResources(function (err, devices) {
       })
     }], function (err, results) {
       // All queries have finished
-      console.log(err)
-      console.log(results)
       if (err) return res.status(500).send(err)
+      var client = mqtt.connect()
+      client.publish('music', JSON.stringify(response))
       return res.send(response)
     })
   })
