@@ -101,7 +101,7 @@ loadResources(function (err, devices) {
       // All queries have finished
       if (err) return res.status(500).send(err)
       var client = mqtt.connect()
-      client.publish('music', JSON.stringify(response))
+      client.publish('netbeast/music', JSON.stringify(response))
       return res.send(response)
     })
   })
