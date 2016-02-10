@@ -37,7 +37,7 @@ loadResources(function (err, devices) {
       console.log(actions)
     }
 
-    if (!Object.keys(req.query).length) return res.status(202).send('Values not available on this sonos speaker')
+    if (!Object.keys(actions).length) return res.status(202).send('Values not available on this sonos speaker')
 
     const keys = Object.keys(actions) // serialize action keys
 
