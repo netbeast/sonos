@@ -20,7 +20,7 @@ module.exports = function (callback) {
   // We stored the hooks of this devices in the 'objects' array
   var objects = []
   // Request to the database
-  request.get(process.env.LOCAL_URL + '/api/resources?app=sonos',
+  request.get(process.env.NETBEAST + '/api/resources?app=sonos',
   function (err, resp, body) {
     if (err) return callback(err, null)
     if (!body) return callback()
@@ -72,7 +72,7 @@ module.exports = function (callback) {
     if (objects.length > 0) {
       objects.forEach(function (hooks) {
         //  Use this block to delete a device from the netbeast database
-        request.del(process.env.LOCAL_URL + '/api/resources?hook=' + hooks,
+        request.del(process.env.NETBEAST + '/api/resources?hook=' + hooks,
         function (err, resp, body) {
           if (err) return callback(err) // this might produce unwanted results...
         })
