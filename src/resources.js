@@ -48,7 +48,7 @@ module.exports = function (callback) {
     } else {
       //  Use this block to register the found device on the netbeast database
       //  in order to using it later
-      request.post({url: process.env.LOCAL_URL + '/api/resources',
+      request.post({url: process.env.NETBEAST + '/api/resources',
       json: {
         app: 'sonos',          // Name of the device brand
         location: 'none',
