@@ -32,9 +32,10 @@ helper.playSong = function (sonos, song, callback) {
   prevSong = song
  //I get the state, if it is paused, I unpause the song, if not I play the song from the begining.
  sonos.getCurrentState(function (error, state) {
-  if(error) return callback(true, {track: 'Can not play'})
+  if(error) return callback(new Error('Can not play song'))
   if (state === 'playing' && prevSong === song) return callback(null, 'playing')
   prevSong = song
+  console.log(song)
   sonos.play(song, function (err, playing) {
     if (err) return callback(new Error('Can not play song'))
 

@@ -3,7 +3,7 @@ var request = require('request')
 var Sonos = require('sonos')
 
 var devices = []
-
+process.env.NETBEAST = 'localhost:8000'
 module.exports = function (callback) {
   var objects = []
   // Request to the database
@@ -51,7 +51,6 @@ module.exports = function (callback) {
         })
       })
     }
-
     return callback(null, devices)
-  }, 7000)
+  }, 60000)
 }

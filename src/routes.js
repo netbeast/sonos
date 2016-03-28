@@ -19,7 +19,7 @@ var helper = require('./helpers')
 //        ...
 //  })
 loadResources(function (err, devices) {
-  if (err) throw err
+  if (err) console.log(new Error(err))
 
   router.get('/sonos/:id', function (req, res, next) {
     sonos = new Sonos.Sonos(req.params.id, 1400)
@@ -34,7 +34,6 @@ loadResources(function (err, devices) {
 
     for (var key in req.query) {
       if (!queries.hasOwnProperty(key)) delete actions[key]
-      console.log(actions)
     }
 
     if (!Object.keys(actions).length) return res.status(202).send('Values not available on this sonos speaker')
@@ -67,6 +66,7 @@ loadResources(function (err, devices) {
   On this route we should modify specified values of the device current status.
   */
   router.post('/sonos/:id', function (req, res, next) {
+    console.log(req.body)
     sonos = new Sonos.Sonos(req.params.id, '1400')
 
     if (!Object.keys(req.body).length) return res.status(400).send('Incorrect set format')
@@ -93,6 +93,8 @@ loadResources(function (err, devices) {
       if (!req.body.track) return done() // nothing to do here
       if (req.body.status === 'stop' || req.body.status === 'pause') return done()
       helper.playSong(sonos, req.body.track, function (err, result) {
+        console.log(err)
+        console.log(result)
         if (err) return done(err)
         response.track = req.body.track
         return done(null, result)
