@@ -5,7 +5,7 @@
   "main": "index.js",
   "netbeast": {
     "bootOnLoad": true,
-    "type": "plugin"
+    "type": "plugin",
   },
   "logo": "logo.png",
   "dependencies": {
