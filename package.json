@@ -5,11 +5,10 @@
   "main": "index.js",
   "netbeast": {
     "bootOnLoad": true,
-    "type": "plugin",
+    "type": "plugin"
   },
   "logo": "logo.png",
   "dependencies": {
-    "sonos": "^0.11.0",
     "async": "^1.4.2",
     "body-parser": "^1.14.0",
     "chai": "^3.2.0",
@@ -19,9 +18,11 @@
     "http": "0.0.0",
     "mocha": "^2.3.2",
     "morgan": "^1.6.1",
+    "netbeast": "^1.0.5",
     "node-lifx": "^0.3.0",
     "request": "^2.62.0",
-    "socket.io": "^1.3.7"
+    "socket.io": "^1.3.7",
+    "sonos": "^0.11.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -30,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "GITHUB_REPOSITORY"
+    "url": "https://github.com/netbeast/sonos"
   },
   "keywords": [
     "iot",
@@ -40,7 +41,7 @@
   "author": "luis@netbeast.co",
   "license": "GPL 3",
   "bugs": {
-    "url": "ISSUES_CHANNEL"
+    "url": "https://github.com/netbeast/sonos/issues"
   },
   "homepage": "netbeast.co"
 }
