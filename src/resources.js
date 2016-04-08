@@ -1,3 +1,4 @@
+var util = require('util')
 var request = require('request')
 // Sonos declaration
 var Sonos = require('sonos')
