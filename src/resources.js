@@ -11,7 +11,7 @@ module.exports = function (callback) {
     if (err) return callback(err, null)
     if (!body) return callback()
     // Store the found devices in 'objects' array
-    if (body.length > 0) {
+    if (util.isArray(body)) {
       body.forEach(function (device) {
         if (objects.indexOf(device.hook) < 0) objects.push(device.hook)
       })
