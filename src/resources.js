@@ -10,13 +10,11 @@ module.exports = function (callback) {
   request.get('http://' + process.env.NETBEAST + '/api/resources?app=sonos',
   function (err, resp, body) {
     if (err) return callback(err, null)
-    if (!body) return callback()
+    if (!util.isArray(body)) return callback()
     // Store the found devices in 'objects' array
-    if (util.isArray(body)) {
-      body.forEach(function (device) {
-        if (objects.indexOf(device.hook) < 0) objects.push(device.hook)
-      })
-    }
+    body.forEach(function (device) {
+       if (objects.indexOf(device.hook) < 0) objects.push(device.hook)
+    })
   })
 
   // Implement the device discovery method
